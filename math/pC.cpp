@@ -24,40 +24,24 @@ using namespace std;
 typedef long long int ll;
 typedef pair<int, int> pii;
 
-int fp(int b, int p, int m)
-{
-	int t = b;
-	int result = 1;
-
-	t %= m;
-
-	while(p)
-	{
-		if(p & 1)
-		{
-			result = (result * t) % m;
-		}
-
-		t = (t * t) % m;
-
-		p >>= 1;
-	}
-
-	return result;
-}
+int plu[100010];
+int minu[100010];
 
 void init()
 {
+	memset(plu, 0, sizeof(plu));
+	memset(minu, 0, sizeof(minu));
 }
 
 void solve()
 {
-	int b, p, m;
-// printf("%d\n", fp(2, 10, MOD));
-	while(scanf("%d %d %d", &b, &p, &m) != EOF)
+	int p, q, r, s;
+
+	while(scanf("%d %d %d %d", &p, &q, &r, &s) != EOF)
 	{
-		printf("%d\n", fp(b, p, m));
+
 	}
+
 }
 
 int main()

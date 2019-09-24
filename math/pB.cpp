@@ -1,6 +1,6 @@
 #include <algorithm>
-#include <iostream>
 #include <cstdio>
+#include <iostream>
 #include <cstdlib>
 #include <cstring>
 #include <map>
@@ -24,16 +24,16 @@ using namespace std;
 typedef long long int ll;
 typedef pair<int, int> pii;
 
-int fp(int b, int p, int m)
+ll fp(ll b, ll p, ll m)
 {
-	int t = b;
-	int result = 1;
+	ll t = b;
+	ll result = 1;
 
 	t %= m;
 
-	while(p)
+	while (p)
 	{
-		if(p & 1)
+		if (p & 1)
 		{
 			result = (result * t) % m;
 		}
@@ -52,17 +52,33 @@ void init()
 
 void solve()
 {
-	int b, p, m;
-// printf("%d\n", fp(2, 10, MOD));
-	while(scanf("%d %d %d", &b, &p, &m) != EOF)
+	ll b, p, n;
+	scanf("%lld %lld %lld", &b, &p, &n);
+
+	ll x = fp(b, p, n);
+
+	ll xi = 0, xi2 = 1, temp;
+	for(ll i = 0; i <= x - 1; i++)
 	{
-		printf("%d\n", fp(b, p, m));
+		temp = (xi + xi2) % n;
+		xi = xi2;
+		xi2 = temp;
 	}
+
+	printf("%lld\n", xi);
+
 }
 
 int main()
 {
-	init();
-	solve();
+	int n;
+	scanf("%d", &n);
+
+	while (n--)
+	{
+		init();
+		solve();
+	}
+
 	return 0;
 }
